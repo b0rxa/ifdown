@@ -1,0 +1,13 @@
+Package: ifdown
+Type: Package
+Title: Package with RMarkdown template for ifirak documents
+Version: 0.1.0
+Date: 01-02-2018
+Author: Borja Calvo [aut, cre]
+Maintainer: Borja Calvo <borja.calvo@ehu.eus>
+Description: Package with RMarkdown template for ifirak documents
+Imports: knitr, rmarkdown
+License: GPL-2
+LazyData: true
+Collate:
+    ifirak.R
