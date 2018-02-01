@@ -1,0 +1,42 @@
+---
+title: Template for UPV/EHU reports
+author: Borja Calvo
+classoptions: gipuzkoa, en, texthead
+center: Informatika
+name: Borja Calvo
+tel: 943 01 5013
+mail: borja.calvo@ehu.eus
+address: Manuel de Lardizabal, 10\\
+         20018 Donostia
+web: www.sc.ehu.es/isg
+rightlogo: EHU
+leftlogo: ZTF
+dpto: Ciencias de la Computación e Inteligencia Artificial
+saila: Konputazio Zientziak eta Adimen Artifiziala
+abstract: >
+  Summary of the document
+output: ifdown::ifreport
+---
+
+## Introduction
+
+This template can be used to create pdf files with the LaTeX [ifirak format](https://github.com/b0rxa/iflatex)
+
+## Information
+In the header you can fill some information:
+
+* `title` Title of the document
+* `author` Name of the author(s) of the document. You can add as many as needed
+* `classoptions` The template has two types of options, one for the campus and the other for the language. For the campus you can select between `gipuzkoa`, `bizkaia` or `araba`. For the language the options are `eu`, `es` and `en`
+* `name` Name for the footer
+* `tel` Telephone
+* `mail` E-mail address
+* `address` Address of the faculty or school.
+* `web` Personal web page
+* `rightlogo` File for the righ logo in the header
+* `leftlogo` File for the left logo in the header
+* `dpto` Name of the department in spanish. Only valid if we use the class option **texthead**
+* `saila` Name of the department in basque. Only valid if we use the class option **texthead**
+* `abstract` Summary of the document. This field can be removed
+* `preamble` Any preable needed for the LaTeX document. This field can be removed.
+
