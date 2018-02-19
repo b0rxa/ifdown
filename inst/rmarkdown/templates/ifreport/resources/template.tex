@@ -22,11 +22,14 @@ $endif$
 \title{$title$}
 \author{$author$}
 
+
 $if(date)$
-$if($date$!="None"$
 \date{$date$}
 $endif$
+$if(emptydate)$
+\date{}
 $endif$
+
 
 $if(name)$
 \name{$name$}
