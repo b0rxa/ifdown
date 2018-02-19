@@ -1,6 +1,7 @@
 ---
 title: Template for UPV/EHU teaching documents
 author: Borja Calvo
+date: Sys.
 classoptions: gipuzkoa, en
 center: Informatika
 teacher: Borja Calvo
@@ -8,8 +9,9 @@ year: 2017/2018
 course: Bilaketa Heuristikoak
 tel: 943 01 5013
 mail: borja.calvo@ehu.eus
-address: Manuel de Lardizabal, 10\\
-         20018 Donostia
+address: | 
+         | Manuel de Lardizabal, 1
+         | 20018 Donostia
 abstract: >
   Summary of the document
 output: ifdown::ifirak

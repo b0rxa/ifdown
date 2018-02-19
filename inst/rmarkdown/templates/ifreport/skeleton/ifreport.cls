@@ -1,7 +1,7 @@
 %% Ikerkuntza operatiboa irakasgaiaren dokumentazioa prestatzeko formatua
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{ifirak}[2012/05/18 v0.1]
+\ProvidesClass{ifreport}[2012/05/18 v0.1]
 
 \LoadClassWithOptions{article}[2005/09/16]
 
@@ -14,7 +14,7 @@
 \paperwidth  210mm
 \setlength{\pdfpagewidth}{\paperwidth}
 \setlength{\pdfpageheight}{\paperheight}
-\textwidth 0.81\paperwidth
+\textwidth 0.81\paperwidth   
 \textheight 0.75\paperheight
 \voffset -38mm
 \hoffset -5mm
@@ -30,7 +30,7 @@
 \@ifundefined{footsep}{\newdimen\footsep}{}% this is for LaTeX2e
 \footsep 20mm               % Height of box containing running foot.
 
-\@twosidefalse
+\@twosidefalse 
 \@mparswitchfalse
 
 
@@ -48,23 +48,17 @@
    {\def\@campus{CAMPUS DE ALAVA}
     \def\@campusa{ARABAKO CAMPUSA}}
 \DeclareOption{eu}
-   {\renewcommand\abstractname{Laburpena}
+   {\renewcommand\abstractname{Laburpena} 
     \renewcommand\refname{Bibliografia}
-    \renewcommand\figurename{irudia}
-    \renewcommand\tablename{taula}
+    \renewcommand\figurename{Irudia}
+    \renewcommand\tablename{Taula}
     \renewcommand\today{\number\year(e)ko\space\ifcase\month\or
     urtarrilak\or otsailak\or martxoak\or apirilak\or
     maiatzak\or ekainak\or uztailak\or abuztuak\or
     irailak\or urriak\or azaroak\or
-    abenduak\fi~\number\day}
-    \renewcommand{\fnum@figure}{\thefigure\nobreakspace\figurename}
-    \renewcommand{\fnum@table}{\thetable\nobreakspace\tablename}
-    \def\@theirakaslea{Irakaslea: }
-    \def\@theikasturtea{Ikasturtea: }
-    \def\@thetel{Telefonoa: }
-    \def\@theeposta{E-posta: }}
+    abenduak\fi~\number\day}}
 \DeclareOption{es}
-   {\renewcommand\abstractname{Resumen}
+   {\renewcommand\abstractname{Resumen} 
     \renewcommand\refname{Bibliograf\'ia}
     \renewcommand\figurename{Figura}
     \renewcommand\tablename{Tabla}
@@ -72,38 +66,52 @@
     Enero\or Febrero\or Marzo\or Abril\or
     Mayo\or Junio\or Julio\or Agosto\or
     Septiembre\or Noviembre\or Diciembre\or
-    abenduak\fi~de {\number\year}}
-    \def\@theirakaslea{Profesor(a): }
-    \def\@theikasturtea{A\~no: }
-    \def\@thetel{Tel\'efono: }
-    \def\@theeposta{E-mail: }}
-\DeclareOption{en}{
-    \def\@theirakaslea{Lecturer: }
-    \def\@theikasturtea{Year: }
-    \def\@thetel{Telephone: }
-    \def\@theeposta{E-mail: }}
+    abenduak\fi~de {\number\year}}}
+\DeclareOption{en}{}
+\DeclareOption{texthead}
+{
+\def\saila#1{\gdef\@saila{#1}}
+\def\@saila{Konputazio Zientziak eta Adimen Artifiziala}
 
+\def\dpto#1{\gdef\@dpto{#1}}
+\def\@dpto{Ciencias de la Computaci\'on e Inteligencia Artificial}
+
+\def\@rightlogohead{
+  \fontfamily{phv}\selectfont\scriptsize
+  \begin{tabular}[b]{rrr@{}}
+  \@saila \\
+  \textcolor[rgb]{0.3,0.3,0.3}{\@dpto} \\
+  \end{tabular}
+}
+\def\@rightlogotitle{
+   \fontfamily{phv}\selectfont
+   \begin{tabular}[b]{rrr@{}}
+   \@saila \\
+   \textcolor[rgb]{0.3,0.3,0.3}{\@dpto} \\
+   \end{tabular}
+}}
 \ProcessOptions
 
 % COMMAND DEFINITIONS
 
-\def\fakultatea#1{\gdef\@fakultatea{#1}}
-\def\@fakultatea{informatika}
+\def\rightlogo#1{\gdef\@rightlogo{#1}}
+\def\@rightlogo{informatika}
 
-\def\irakasgaia#1{\gdef\@irakasgaia{#1}}
-\def\@irakasgaia{Ikerketa Operatiboa}
-
-\def\ikasturtea#1{\gdef\@ikasturtea{#1}}
-\def\@ikasturtea{2011/2012}
-
-\def\irakaslea#1{\gdef\@irakaslea{#1}}
-\def\@irakaslea{Borja Calvo}
+\def\leftlogo#1{\gdef\@leftlogo{#1}}
+\def\@leftlogo{ehu}
 
 \def\tel#1{\gdef\@tel{#1}}
 \def\@tel{943 01 5013}
 
+\def\name#1{\gdef\@name{#1}}
+\def\@name{Borja Calvo}
+
 \def\mail#1{\gdef\@mail{#1}}
 \def\@mail{borja.calvo@ehu.es}
+
+\def\web#1{\gdef\@web{#1}}
+\def\@web{http://www.sc.ehu.es/isg}
+
 
 \def\addrs#1{\gdef\@addrs{#1}}
 \def\@addrs{Paseo Manuel de Lardizabal, 1\\ 20018 Donostia (Gipuzkoa)}
@@ -114,29 +122,19 @@
      \@addrs
     \end{tabular}
 }
+\@ifundefined{saila}{
+\def\@rightlogohead{\includegraphics[width=45mm]{\@rightlogo}}
+\def\@rightlogotitle{\includegraphics[height=18mm,width=45mm,keepaspectratio=true]{\@rightlogo}}
+}{}
 
-\def\@irakasgaiahead{
-  \fontfamily{phv}\selectfont
-  \begin{tabular}[b]{r}
-  \@irakasgaia \\
-  \textcolor[rgb]{0.3,0.3,0.3}{\@ikasturtea} \\
-  \end{tabular}
-}
-\def\@irakasgaiatitle{
-   \fontfamily{phv}\selectfont
-   \begin{tabular}[b]{c}
-   \@irakasgaia \\
-   \textcolor[rgb]{0.3,0.3,0.3}{\@ikasturtea} \\
-   \end{tabular}
-}
 
 % DEFINICION DE LOS DOS TIPOS DE ENCABEZADO / PIE (PRIMERA PAGINA Y SIGUIENTES)
 
 \def\ps@iohead{
      \def\@oddhead{\parbox{\textwidth}{
      \hspace{-10mm}
-     \includegraphics[width=45mm]{EHU}\hfill
-     \@irakasgaiahead
+     \includegraphics[width=45mm]{\@leftlogo}\hfill
+     \@rightlogohead
      \hspace{-10mm}
      }}%
      \def\@oddfoot{{\parbox{\textwidth}{\centering \thepage}}}%
@@ -148,11 +146,11 @@
      \def\@oddhead{}%
      \def\@oddfoot{{\parbox{\textwidth}{\scriptsize
       \fontfamily{phv}\selectfont
-      \begin{tabular}[b]{ll}
-        \@theikasturtea & \@ikasturtea \\
-        \@theirakaslea & \@irakaslea \\
-        \@thetel & \@tel \\
-        \@theeposta & \@mail \\
+      \begin{tabular}[b]{l}	
+        \@name \\
+        \@tel \\
+        \@mail \\
+        \@web\\
      \end{tabular}
      \hfill
      \@helbidea}}}%
@@ -207,11 +205,9 @@
 \begin{minipage}{1.12\textwidth}
 \hrule
 \vskip 2mm
-\raisebox{-0.5\height}{\includegraphics[height=18mm,width=45mm,keepaspectratio=true]{EHU}}
+\raisebox{-0.5\height}{\includegraphics[height=18mm,width=45mm,keepaspectratio=true]{\@leftlogo}}
 \hfill
-\raisebox{-0.5\height}{\Large\@irakasgaiatitle}
-\hfill
-\raisebox{-0.5\height}{\includegraphics[height=18mm,width=45mm,keepaspectratio=true]{\@fakultatea}}
+\raisebox{-0.5\height}{\@rightlogotitle}
 \vskip 2mm
 \hrule
 \end{minipage}

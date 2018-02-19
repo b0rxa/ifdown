@@ -6,8 +6,9 @@ center: Informatika
 name: Borja Calvo
 tel: 943 01 5013
 mail: borja.calvo@ehu.eus
-address: Manuel de Lardizabal, 10\\
-         20018 Donostia
+address: | 
+         | Manuel de Lardizabal, 1
+         | 20018 Donostia
 web: www.sc.ehu.es/isg
 rightlogo: EHU
 leftlogo: ZTF

@@ -1,6 +1,7 @@
 \documentclass[$if(classoptions)$$classoptions$$endif$]{ifirak}
 
 \usepackage{hyperref}
+\usepackage{longtable}
 
 $preamble$
 
@@ -14,6 +15,10 @@ $endif$
 
 \title{$title$}
 \author{$author$}
+
+$if(date)$
+\date{$date$}
+$endif$
 
 $if(center)$
 \fakultatea{$center$}
