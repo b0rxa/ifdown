@@ -10,7 +10,7 @@ ifirak <- function(..., keep_tex = TRUE, citation_package='natbib'){
   return(fmt)
 }
 
-ifirak <- function(..., keep_tex = TRUE, citation_package='natbib'){
+ifirak2 <- function(..., keep_tex = TRUE, citation_package='natbib'){
   template <- system.file(file.path("rmarkdown", "templates", "ifirak2", "resources", "template.tex"),
                           package="ifdown")
 
