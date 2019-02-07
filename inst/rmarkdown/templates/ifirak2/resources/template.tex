@@ -1,4 +1,4 @@
-\documentclass[$if(classoptions)$$classoptions$$endif$]{ifreport}
+\documentclass[$if(classoptions)$$classoptions$$endif$]{ifirak}
 
 \usepackage{hyperref}
 \usepackage{longtable}
@@ -22,7 +22,6 @@ $endif$
 \title{$title$}
 \author{$author$}
 
-
 $if(date)$
 \date{$date$}
 $endif$
@@ -31,9 +30,12 @@ $if(emptydate)$
 \date{}
 $endif$
 
-
 $if(name)$
-\name{$name$}
+\izena{$teacher$}
+$endif$
+
+$if(course)$
+\irakasgaia{$course$}
 $endif$
 
 $if(tel)$
@@ -44,29 +46,8 @@ $if(mail)$
 \mail{$mail$}
 $endif$
 
-$if(web)$
-\web{$web$}
-$endif$
-
 $if(address)$
 \addrs{$address$}
-$endif$
-
-$if(rightlogo)$
-\rightlogo{$rightlogo$}
-$endif$
-
-
-$if(leftlogo)$
-\leftlogo{$leftlogo$}
-$endif$
-
-$if(saila)$
-\saila{$saila$}
-$endif$
-
-$if(dpto)$
-\dpto{$dpto$}
 $endif$
 
 \maketitle

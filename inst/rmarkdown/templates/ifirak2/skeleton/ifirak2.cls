@@ -1,7 +1,7 @@
 %% Ikerkuntza operatiboa irakasgaiaren dokumentazioa prestatzeko formatua
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{ifreport}[2012/05/18 v0.1]
+\ProvidesClass{ifirak2}[2019/01/24 v0.2]
 
 \LoadClassWithOptions{article}[2005/09/16]
 
@@ -38,9 +38,17 @@
 
 \def\@campus{CAMPUS DE GUIPUZCOA}
 \def\@campusa{GIPUZKOAKO CAMPUSA}
+\def\@logoa{EHU_Infor_Elebiduna}
+
+% ENCABEZADO Y PIE VACIO COMO OPCIÓN POR DEFECTO
+\def\ps@ioheadfirst{
+	\def\@oddhead{}%
+	\def\@oddfoot{}%
+	\let\evenhead\@evenfoot
+	\let\@evenfoot\@oddfoot
+}
 
 \DeclareOption{gipuzkoa}{}
-
 \DeclareOption{bizkaia}
    {\def\@campus{CAMPUS DE VIZKAYA}
     \def\@campusa{BIZKAIKO CAMPUSA}}
@@ -66,52 +74,42 @@
     Enero\or Febrero\or Marzo\or Abril\or
     Mayo\or Junio\or Julio\or Agosto\or
     Septiembre\or Noviembre\or Diciembre\or
-    abenduak\fi~de {\number\year}}}
-\DeclareOption{en}{}
-\DeclareOption{texthead}
-{
-\def\saila#1{\gdef\@saila{#1}}
-\def\@saila{Konputazio Zientziak eta Adimen Artifiziala}
+    abenduak\fi~de {\number\year}}
+    \def\@logoa{EHU_Infor_Elebiduna}}
+\DeclareOption{en}{
+    \def\@logoa{EHU_Infor_English}}
 
-\def\dpto#1{\gdef\@dpto{#1}}
-\def\@dpto{Ciencias de la Computaci\'on e Inteligencia Artificial}
+\DeclareOption{foot}{
+	\def\ps@ioheadfirst{
+		\def\@oddhead{}%
+		\def\@oddfoot{{\parbox{\textwidth}{\scriptsize
+					\fontfamily{phv}\selectfont
+					\begin{tabular}[b]{ll}	
+						\@irakasgaia\\
+						\@izena \\
+						\@mail \\
+						\@tel \\
+					\end{tabular}
+					\hfill
+					\@helbidea}}}%
+		\let\evenhead\@evenfoot
+		\let\@evenfoot\@oddfoot}}
 
-\def\@rightlogohead{
-  \fontfamily{phv}\selectfont\scriptsize
-  \begin{tabular}[b]{rrr@{}}
-  \@saila \\
-  \textcolor[rgb]{0.3,0.3,0.3}{\@dpto} \\
-  \end{tabular}
-}
-\def\@rightlogotitle{
-   \fontfamily{phv}\selectfont
-   \begin{tabular}[b]{rrr@{}}
-   \@saila \\
-   \textcolor[rgb]{0.3,0.3,0.3}{\@dpto} \\
-   \end{tabular}
-}}
 \ProcessOptions
 
 % COMMAND DEFINITIONS
 
-\def\rightlogo#1{\gdef\@rightlogo{#1}}
-\def\@rightlogo{informatika}
+\def\irakasgaia#1{\gdef\@irakasgaia{#1}}
+\def\@irakasgaia{Irakasgaia}
 
-\def\leftlogo#1{\gdef\@leftlogo{#1}}
-\def\@leftlogo{ehu}
+\def\izena#1{\gdef\@izena{#1}}
+\def\@izena{Zure Izena}
 
 \def\tel#1{\gdef\@tel{#1}}
-\def\@tel{943 01 5013}
-
-\def\name#1{\gdef\@name{#1}}
-\def\@name{Borja Calvo}
+\def\@tel{Zure Telefonoa}
 
 \def\mail#1{\gdef\@mail{#1}}
-\def\@mail{borja.calvo@ehu.es}
-
-\def\web#1{\gdef\@web{#1}}
-\def\@web{http://www.sc.ehu.es/isg}
-
+\def\@mail{zure.emaila@ehu.eus}
 
 \def\addrs#1{\gdef\@addrs{#1}}
 \def\@addrs{Paseo Manuel de Lardizabal, 1\\ 20018 Donostia (Gipuzkoa)}
@@ -122,19 +120,27 @@
      \@addrs
     \end{tabular}
 }
-\@ifundefined{saila}{
-\def\@rightlogohead{\includegraphics[width=45mm]{\@rightlogo}}
-\def\@rightlogotitle{\includegraphics[height=18mm,width=45mm,keepaspectratio=true]{\@rightlogo}}
-}{}
 
+\def\@irakasgaiahead{
+  \fontfamily{phv}\selectfont
+  \begin{tabular}[b]{r}
+  \@irakasgaia \\
+  \end{tabular}
+}
+\def\@irakasgaiatitle{
+   \fontfamily{phv}\selectfont
+   \begin{tabular}[b]{r}
+   \@irakasgaia \\
+   \end{tabular}
+}
 
-% DEFINICION DE LOS DOS TIPOS DE ENCABEZADO / PIE (PRIMERA PAGINA Y SIGUIENTES)
+% DEFINICION DEL ENCABEZADO / PIE (PAGINA 2 EN ADELANTE)
 
 \def\ps@iohead{
      \def\@oddhead{\parbox{\textwidth}{
      \hspace{-10mm}
-     \includegraphics[width=45mm]{\@leftlogo}\hfill
-     \@rightlogohead
+     \raisebox{-35mm}{\includegraphics[height=35mm]{\@logoa}}\hfill
+     \raisebox{-27mm}{\large\@irakasgaiatitle}
      \hspace{-10mm}
      }}%
      \def\@oddfoot{{\parbox{\textwidth}{\centering \thepage}}}%
@@ -142,21 +148,6 @@
      \let\@evenfoot\@oddfoot
 }
 
-\def\ps@ioheadfirst{
-     \def\@oddhead{}%
-     \def\@oddfoot{{\parbox{\textwidth}{\scriptsize
-      \fontfamily{phv}\selectfont
-      \begin{tabular}[b]{l}	
-        \@name \\
-        \@tel \\
-        \@mail \\
-        \@web\\
-     \end{tabular}
-     \hfill
-     \@helbidea}}}%
-     \let\evenhead\@evenfoot
-     \let\@evenfoot\@oddfoot
-}
 
 %REDEFINICION DEL COMANDO maketitle PARA QUE NO SE CARGUE EL ESTILO DE LA PRIMERA PAGINA
 
@@ -200,16 +191,13 @@
 \enlargethispage{-10mm}
   \newpage
   \null
-\vskip -30mm
+\vskip -50mm
 \hspace{-16mm}
 \begin{minipage}{1.12\textwidth}
-\hrule
-\vskip 2mm
-\raisebox{-0.5\height}{\includegraphics[height=18mm,width=45mm,keepaspectratio=true]{\@leftlogo}}
+\raisebox{-35mm}{\includegraphics[height=35mm,keepaspectratio=true]{\@logoa}}
 \hfill
-\raisebox{-0.5\height}{\@rightlogotitle}
+\raisebox{-27mm}{\large\@irakasgaiatitle}
 \vskip 2mm
-\hrule
 \end{minipage}
 \vskip 20mm%
   \begin{center}%

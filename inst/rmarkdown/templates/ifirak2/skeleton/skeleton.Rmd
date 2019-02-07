@@ -1,0 +1,36 @@
+---
+title: Template for UPV/EHU teaching documents v2.0
+author: Borja Calvo
+date: Sys.
+classoptions: gipuzkoa, eu, foot
+name: Borja Calvo
+course: Bilaketa Heuristikoak
+tel: 943 01 5013
+mail: borja.calvo@ehu.eus
+address: | 
+         | Manuel de Lardizabal, 1
+         | 20018 Donostia
+abstract: >
+  Summary of the document
+output: ifdown::ifirak2
+---
+
+
+## Introduction
+
+This template can be used to create pdf files with the LaTeX 
+
+## Information
+In the header you can fill some information:
+
+* `title` Title of the document
+* `author` Name of the author(s) of the document. You can add as many as needed
+* `classoptions` The template has two types of options, one for the campus and the other for the language. For the campus you can select between `gipuzkoa`, `bizkaia` or `araba`. For the language the options are `eu`, `es` and `en`. Finally, you can add the `foot` option if you want to have a footer in the first page.
+* `name` Name for the footer
+* `course` The course for which the document is
+* `tel` Telephone
+* `mail` E-mail address
+* `address` Address of the faculty or school.
+* `abstract` Summary of the document. This field can be removed.
+* `preamble` Any preable needed for the LaTeX document. This field can be removed.
+
