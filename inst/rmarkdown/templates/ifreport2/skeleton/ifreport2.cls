@@ -38,6 +38,7 @@
 
 \def\@campus{CAMPUS DE GUIPUZCOA}
 \def\@campusa{GIPUZKOAKO CAMPUSA}
+\def\@emptylogo{} %Truco warro para que funcione el chequeo de logo vacio con el texthead
 
 % ENCABEZADO Y PIE VACIO COMO OPCIÓN POR DEFECTO
 \def\ps@ioheadfirst{
@@ -82,7 +83,7 @@
 	
 	\def\dpto#1{\gdef\@dpto{#1}}
 	\def\@dpto{Ciencias de la Computaci\'on e Inteligencia Artificial}
-	
+	\def\@emptylogo{ZABORRA}
 	\def\@rightlogohead{
 		\fontfamily{phv}\selectfont\scriptsize
 		\begin{tabular}[b]{rrr@{}}
@@ -118,7 +119,7 @@
 % COMMAND DEFINITIONS
 
 \def\rightlogo#1{\gdef\@rightlogo{#1}}
-\def\@rightlogo{}
+\def\@rightlogo{\@emptylogo}
 
 \def\leftlogo#1{\gdef\@leftlogo{#1}}
 \def\@leftlogo{EHU_Infor_English}
