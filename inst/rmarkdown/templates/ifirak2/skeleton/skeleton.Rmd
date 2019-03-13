@@ -25,12 +25,17 @@ In the header you can fill some information:
 
 * `title` Title of the document
 * `author` Name of the author(s) of the document. You can add as many as needed
-* `classoptions` The template has two types of options, one for the campus and the other for the language. For the campus you can select between `gipuzkoa`, `bizkaia` or `araba`. For the language the options are `eu`, `es` and `en`. Finally, you can add the `foot` option if you want to have a footer in the first page.
+* `classoptions` The template has two types of options, one for the campus and the other for the language. For the campus you can select between `gipuzkoa`, `bizkaia` or `araba`. For the language the options are `eu`, `es` and `en`. As an alternative to the right logo you can include the name of the department using the option `texthead`. Finally, you can add the `foot` option if you want to have a footer in the first page.
 * `name` Name for the footer
 * `course` The course for which the document is
 * `tel` Telephone
 * `mail` E-mail address
 * `address` Address of the faculty or school.
+* `abstract` Summary of the document. This field can be removed.
+* `saila` Only used with the `texthead` option. Name of the department in basque.
+* `dpto` Only used with the `texthead` option. Name of the department in spanish.
+* `leftlogo` Logo to be used in the left side. This option can be ignored, but not be empty.
+* `rightlogo` Logo to be used in the right side. If empty, then no logo is displayed. Only applicable if the `texthead` option is not used.
 * `abstract` Summary of the document. This field can be removed.
 * `preamble` Any preable needed for the LaTeX document. This field can be removed.
 

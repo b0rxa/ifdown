@@ -1,4 +1,4 @@
-\documentclass[$if(classoptions)$$classoptions$$endif$]{ifirak2}
+\documentclass[$if(classoptions)$$classoptions$$endif$]{ifreport2}
 
 \usepackage{hyperref}
 \usepackage{longtable}
@@ -34,8 +34,12 @@ $if(name)$
 \izena{$name$}
 $endif$
 
-$if(course)$
-\irakasgaia{$course$}
+$if(leftlogo)$
+\leftlogo{$leftlogo$}
+$endif$
+
+$if(rightlogo)$
+\leftlogo{$rightlogo$}
 $endif$
 
 $if(tel)$
@@ -48,14 +52,6 @@ $endif$
 
 $if(address)$
 \addrs{$address$}
-$endif$
-
-$if(dpto)$
-\dpto{$dpto$}
-$endif$
-
-$if(saila)$
-\saila{$saila$}
 $endif$
 
 \maketitle
