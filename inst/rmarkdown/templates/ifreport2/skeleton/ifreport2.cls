@@ -80,12 +80,12 @@
 {
 	\def\saila#1{\gdef\@saila{#1}}
 	\def\@saila{Konputazio Zientziak eta Adimen Artifiziala}
-	
+
 	\def\dpto#1{\gdef\@dpto{#1}}
 	\def\@dpto{Ciencias de la Computaci\'on e Inteligencia Artificial}
 	\def\@emptylogo{ZABORRA}
 	\def\@rightlogohead{
-		\fontfamily{phv}\selectfont\scriptsize
+		\fontfamily{phv}\selectfont
 		\begin{tabular}[b]{rrr@{}}
 			\@saila \\
 			\textcolor[rgb]{0.3,0.3,0.3}{\@dpto} \\
@@ -211,9 +211,9 @@
   \newpage
   \null
 \vskip -50mm
-\hspace{-30mm}
-\begin{minipage}{1.2\textwidth}
-\raisebox{-35mm}{\includegraphics[height=35mm,keepaspectratio=true]{\@leftlogo}}
+\hspace{-20mm}
+\begin{minipage}{1.15\textwidth}
+\raisebox{-35mm}{\includegraphics[height=30mm,keepaspectratio=true]{\@leftlogo}}
 \hfill
 \ifx\@rightlogo\empty
 \else
